@@ -30,17 +30,16 @@ module.exports = function ({ types: t }) {
 				const translationParams = callArgs[1]
 				const keyName = translationKey.node.value
 
-				// Add imports for individual translations to the top of the file
-				const extraImports = locales.map(locale => {
-					const fileDirectory = nodejsPath.dirname(state.file.opts.filename)
-					const relativePath = nodejsPath.relative(fileDirectory, availableTranslations[locale])
-					return t.importDeclaration(
-						[t.importSpecifier(t.identifier(`${keyName}_${locale}`), t.identifier(keyName))],
-						t.stringLiteral(`./${relativePath}`)
-					)
+				// Add variable declarations for individual translations to the top of the file
+				const translationVariables = locales.map(locale => {
+					const translationValue = require(availableTranslations[locale])[keyName]
+					return t.variableDeclaration('const', [t.VariableDeclarator(
+						t.identifier(`${keyName}_${locale}`),
+						t.stringLiteral(translationValue)
+					)])
 				})
-				extraImports.forEach(importDeclaration => {
-					state.file.path.node.body.unshift(importDeclaration)
+				translationVariables.forEach(translationVariable => {
+					state.file.path.node.body.unshift(translationVariable)
 				})
 
 				// Replace function call with extra argument

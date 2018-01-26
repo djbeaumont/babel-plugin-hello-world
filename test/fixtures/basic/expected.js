@@ -1,5 +1,5 @@
-import { my_key_goes_here as my_key_goes_here_en } from './lib/translations/en.json';
-import { my_key_goes_here as my_key_goes_here_de } from './lib/translations/de.json';
+const my_key_goes_here_en = 'english translation';
+const my_key_goes_here_de = 'deutche translation';
 import { localiseWithTranslations as t } from './lib/i18n';
 
 const translated = t('my_key_goes_here', {
