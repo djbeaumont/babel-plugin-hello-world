@@ -28,7 +28,14 @@ function runTests() {
 function runTest(dir) {
 	var exitCode = 0;
 	var output = babel.transformFileSync(dir.path + '/actual.js', {
-		plugins: [pluginPath]
+		plugins: [
+			[pluginPath, {
+				translations: {
+					de: path.resolve(__dirname, 'fixtures/basic/lib/translations/de.json'),
+					en: path.resolve(__dirname, 'fixtures/basic/lib/translations/en.json')
+				}
+			}]
+		]
 	});
 
 	var expected = fs.readFileSync(dir.path + '/expected.js', 'utf-8');
