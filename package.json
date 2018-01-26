@@ -1,8 +1,8 @@
 {
-  "name": "babel-plugin-hello-world",
+  "name": "@djbeaumont/babel-plugin-transform-i18n",
   "version": "1.0.0",
   "description": "Extended plugin sample for Babel",
-  "repository": "RReverser/babel-plugin-hello-world",
+  "repository": "djbeaumont/babel-plugin-transform-i18n",
   "license": "MIT",
   "main": "dist/index.js",
   "dependencies": {
