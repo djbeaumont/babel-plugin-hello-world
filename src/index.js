@@ -47,7 +47,11 @@ module.exports = function ({ types: t }) {
 					return t.objectProperty(t.identifier(locale), t.identifier(`${keyName}_${locale}`))
 				}))
 
-				const newCall = t.CallExpression(t.identifier('t'), [translationKey.node, translations, translationParams.node])
+				const newArgs = [translationKey.node, translations]
+				if (translationParams) {
+					newArgs.push(translationParams.node)
+				}
+				const newCall = t.CallExpression(t.identifier('t'), newArgs)
 				newCall.isNew = true
 
 				path.replaceWith(newCall)

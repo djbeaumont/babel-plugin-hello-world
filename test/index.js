@@ -31,8 +31,8 @@ function runTest(dir) {
 		plugins: [
 			[pluginPath, {
 				translations: {
-					de: path.resolve(__dirname, 'fixtures/basic/lib/translations/de.json'),
-					en: path.resolve(__dirname, 'fixtures/basic/lib/translations/en.json')
+					de: path.resolve(__dirname, 'lib/translations/de.json'),
+					en: path.resolve(__dirname, 'lib/translations/en.json')
 				}
 			}]
 		]

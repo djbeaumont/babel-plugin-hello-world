@@ -1,6 +1,6 @@
 {
   "name": "@djbeaumont/babel-plugin-transform-i18n",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extended plugin sample for Babel",
   "repository": "djbeaumont/babel-plugin-transform-i18n",
   "license": "MIT",
